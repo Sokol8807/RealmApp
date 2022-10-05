@@ -15,7 +15,7 @@ class TasksViewController: UITableViewController {
     
     private var currentTasks: Results<Task>!
     private var completedTasks: Results<Task>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = taskList.name
@@ -51,8 +51,8 @@ class TasksViewController: UITableViewController {
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
             self.showAlert(with: task) {
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.reloadData()
                 
             }
             isDone(true)
@@ -89,7 +89,7 @@ class TasksViewController: UITableViewController {
     @objc private func addButtonPressed() {
         showAlert()
     }
-
+    
 }
 
 extension TasksViewController {
@@ -104,6 +104,7 @@ extension TasksViewController {
                                                newNote: note)
                 completion()
             } else {
+                
                 self.saveTask(withName: newValue, andNote: note)
             }
         }
